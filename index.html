@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enerji Teklif - Elektrik mühendisleri için profesyonel teklif hazırlama uygulaması">
+    <meta name="keywords" content="elektrik teklif, elektrik mühendisi, PDF teklif, enerji teklif">
+    <title>Enerji Teklif - Profesyonel Elektrik Teklif Uygulaması</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a237e;
+            --navy-light: #283593;
+            --navy-dark: #0d1442;
+            --gold: #ffd700;
+            --gold-dark: #d4af37;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text-dark: #333333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--navy-dark);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 3rem 1rem;
+            background-color: var(--light-gray);
+        }
+
+        .features-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .feature-description {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            border: 3px solid var(--gold);
+        }
+
+        .highlight .feature-title {
+            color: var(--gold);
+        }
+
+        .highlight .feature-description {
+            color: var(--white);
+        }
+
+        /* About Section */
+        .about {
+            padding: 3rem 1rem;
+            background-color: var(--white);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-email {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: var(--gold-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-dark);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.3rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .feature-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">⚡ Enerji Teklif</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elektrik Mühendisleri için Profesyonel Teklif Hazırlama</h1>
+            <p>Projeleriniz için hızlı ve profesyonel PDF teklifler oluşturun</p>
+            <a href="https://play.google.com/store" class="cta-button">Google Play'den İndirin</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-content">
+            <h2 class="section-title">Özellikler</h2>
+            <div class="feature-grid">
+                <div class="feature-card highlight">
+                    <div class="feature-icon">📄</div>
+                    <h3 class="feature-title">PDF Teklif Oluşturma</h3>
+                    <p class="feature-description">Elektrik mühendisleri için özel olarak tasarlanmış profesyonel PDF teklifler oluşturun. Şablonlar, otomatik hesaplamalar ve markalama seçenekleri ile tekliflerinizi kolayca hazırlayın.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Mobil Uyumlu</h3>
+                    <p class="feature-description">Android cihazınızda her yerden tekliflerinizi hazırlayın ve gönderin. Kullanıcı dostu arayüz ile hızlı ve kolay kullanım.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Hızlı ve Verimli</h3>
+                    <p class="feature-description">Zamandan tasarruf edin. Teklif hazırlama sürenizi dakikalara indirin. Önceki tekliflerinizi şablon olarak kullanın.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Güvenli</h3>
+                    <p class="feature-description">Verileriniz güvende. Tüm bilgileriniz cihazınızda güvenli bir şekilde saklanır.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3 class="feature-title">Profesyonel Görünüm</h3>
+                    <p class="feature-description">Müşterilerinize etkileyici ve profesyonel teklifler sunun. Özelleştirilebilir şablonlar ve logo ekleme imkanı.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Detaylı Hesaplamalar</h3>
+                    <p class="feature-description">Elektrik projeleriniz için detaylı maliyet analizi ve otomatik hesaplamalar. KDV, iskonto ve toplam hesaplamaları otomatik olarak yapılır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <h2 class="section-title">Neden Enerji Teklif?</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+                Enerji Teklif, elektrik mühendisleri ve elektrik sektöründe çalışan profesyoneller için özel olarak geliştirilmiş bir mobil uygulamadır. 
+                Projeleriniz için hızlı, profesyonel ve etkileyici PDF teklifler oluşturmanızı sağlar. 
+                Kullanımı kolay arayüzü ve güçlü özellikleri ile iş süreçlerinizi hızlandırır ve profesyonelliğinizi artırır.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-content">
+            <h2 class="section-title">İletişim</h2>
+            <p>Sorularınız veya önerileriniz için bizimle iletişime geçin:</p>
+            <a href="mailto:bilgenahm@gmail.com" class="contact-email">bilgenahm@gmail.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Enerji Teklif. Tüm hakları saklıdır.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="privacy-policy.html">Gizlilik Politikası</a>
+        </p>
+    </footer>
+</body>
+</html>
