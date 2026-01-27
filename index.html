@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enerji Teklif - Elektrik mühendisleri için profesyonel PDF teklif oluşturma uygulaması">
+    <title>Enerji Teklif - Profesyonel Elektrik Teklif Sistemi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #1a237e;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .features {
+            padding: 3rem 1rem;
+            background-color: #f5f5f5;
+        }
+
+        .features h2 {
+            text-align: center;
+            color: #1a237e;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(26, 35, 126, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a237e;
+        }
+
+        .feature-card h3 {
+            color: #1a237e;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about {
+            padding: 3rem 1rem;
+            background-color: white;
+        }
+
+        .about h2 {
+            text-align: center;
+            color: #1a237e;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto 1rem auto;
+            color: #555;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .contact p {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid white;
+            border-radius: 25px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .contact a:hover {
+            background-color: white;
+            color: #1a237e;
+        }
+
+        .footer {
+            background-color: #0d1642;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .features h2,
+            .about h2,
+            .contact h2 {
+                font-size: 1.5rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">⚡ Enerji Teklif</div>
+            <div class="tagline">Elektrik Mühendisleri İçin Profesyonel Çözüm</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Elektrik Tekliflerinizi Saniyeler İçinde Oluşturun</h1>
+            <p>Enerji Teklif ile profesyonel PDF teklifler hazırlayın. Elektrik mühendisleri için özel olarak tasarlanmış, mobil ve kullanıcı dostu uygulama.</p>
+            <a href="#features" class="cta-button">Özellikleri Keşfedin</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Özellikler</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>PDF Teklif Oluşturma</h3>
+                    <p>Profesyonel görünümlü PDF teklifler anında oluşturun. Müşterilerinize hızlı ve etkileyici teklifler sunun.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobil Uyumlu</h3>
+                    <p>Android cihazınızda her yerden erişin. Sahada çalışırken bile tekliflerinizi hazırlayın ve gönderin.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Elektrik Mühendisleri İçin</h3>
+                    <p>Elektrik projeleri ve enerji hesaplamaları için özel olarak optimize edilmiş şablonlar ve araçlar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Kolay Kullanım</h3>
+                    <p>Sezgisel arayüz sayesinde dakikalar içinde profesyonel teklifler oluşturun. Teknik bilgi gerektirmez.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Profesyonel Şablonlar</h3>
+                    <p>Hazır şablonlarla işinizi kolaylaştırın. Firmanıza özel logonuzu ve bilgilerinizi ekleyin.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Güvenli ve Hızlı</h3>
+                    <p>Verileriniz güvende. Hızlı işlem gücü ile tekliflerinizi anında oluşturun ve paylaşın.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <h2>Enerji Teklif Hakkında</h2>
+            <p>Enerji Teklif, elektrik mühendisleri ve enerji sektöründeki profesyoneller için geliştirilmiş, mobil öncelikli bir teklif hazırlama uygulamasıdır.</p>
+            <p>Uygulamamız, karmaşık elektrik projelerini basit ve anlaşılır tekliflere dönüştürmenize yardımcı olur. PDF formatında profesyonel çıktılar alarak müşterilerinize hızlı ve etkili bir şekilde sunabilirsiniz.</p>
+            <p>Modern arayüzü ve kullanıcı dostu tasarımı sayesinde, sahada çalışırken bile kolayca teklif hazırlayabilir, düzenleyebilir ve paylaşabilirsiniz.</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>İletişim</h2>
+            <p>Sorularınız mı var? Bizimle iletişime geçin!</p>
+            <a href="mailto:bilgenahm@gmail.com">bilgenahm@gmail.com</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="privacy-policy.html">Gizlilik Politikası</a>
+            </div>
+            <p>&copy; 2026 Enerji Teklif. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>
