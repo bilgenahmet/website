@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Enerji Teklif - Elektrik mühendisleri için profesyonel PDF teklif oluşturma uygulaması">
-    <title>Enerji Teklif - Profesyonel Elektrik Teklif Sistemi</title>
+    <meta name="description" content="EEM Asistan ve Mühendislik Çözümleri - Elektrik mühendisleri için profesyonel mobil uygulamalar">
+    <title>EEM Yazılım | Mühendislik Çözümleri</title>
     <style>
         * {
             margin: 0;
@@ -22,7 +22,7 @@
         .header {
             background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
             color: white;
-            padding: 1rem;
+            padding: 1.5rem 1rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
@@ -33,286 +33,191 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .tagline {
             font-size: 0.95rem;
-            opacity: 0.9;
+            opacity: 0.85;
+            letter-spacing: 0.5px;
         }
 
         .hero {
             background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
             color: white;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
             opacity: 0.95;
         }
 
-        .cta-button {
-            display: inline-block;
-            background-color: white;
-            color: #1a237e;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        /* Uygulamalar Bölümü */
+        .apps-section {
+            padding: 4rem 1rem;
+            background-color: #f8f9fa;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        .features {
-            padding: 3rem 1rem;
-            background-color: #f5f5f5;
-        }
-
-        .features h2 {
+        .section-title {
             text-align: center;
             color: #1a237e;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            position: relative;
         }
 
-        .feature-grid {
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #3949ab;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .app-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
-        .feature-card {
+        .app-card {
             background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .app-content {
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            flex-grow: 1;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(26, 35, 126, 0.15);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
+        .app-badge {
+            background: #e8eaf6;
+            color: #1a237e;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            color: #1a237e;
+            display: inline-block;
         }
 
-        .feature-card h3 {
+        .app-card h3 {
+            font-size: 1.5rem;
             color: #1a237e;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            margin-bottom: 1rem;
         }
 
-        .feature-card p {
+        .app-card p {
             color: #666;
-            line-height: 1.6;
-        }
-
-        .about {
-            padding: 3rem 1rem;
-            background-color: white;
-        }
-
-        .about h2 {
-            text-align: center;
-            color: #1a237e;
+            font-size: 0.95rem;
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
         }
 
-        .about p {
-            max-width: 800px;
-            margin: 0 auto 1rem auto;
-            color: #555;
-            text-align: center;
-            font-size: 1.05rem;
+        .store-buttons {
+            display: flex;
+            gap: 10px;
+            padding: 1.5rem 2rem;
+            background: #fafafa;
+            border-top: 1px solid #eee;
         }
+
+        .btn-small {
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            flex: 1;
+            text-align: center;
+            transition: opacity 0.2s;
+        }
+
+        .btn-play { background: #1a237e; color: white; }
+        .btn-apple { background: #000; color: white; }
+        .btn-soon { background: #ddd; color: #777; cursor: default; }
 
         .contact {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
-            color: white;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             text-align: center;
-        }
-
-        .contact h2 {
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-
-        .contact p {
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
+            background: white;
         }
 
         .contact a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 2px solid white;
-            border-radius: 25px;
-            display: inline-block;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .contact a:hover {
-            background-color: white;
             color: #1a237e;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.2rem;
         }
 
         .footer {
             background-color: #0d1642;
             color: white;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
             text-align: center;
         }
 
-        .footer-links {
-            margin-bottom: 1rem;
-        }
-
+        .footer-links { margin-bottom: 1.5rem; }
         .footer-links a {
-            color: white;
+            color: #aeb4e6;
             text-decoration: none;
             margin: 0 1rem;
-            transition: opacity 0.3s;
-        }
-
-        .footer-links a:hover {
-            opacity: 0.7;
-        }
-
-        .footer p {
-            font-size: 0.9rem;
-            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .features h2,
-            .about h2,
-            .contact h2 {
-                font-size: 1.5rem;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-links a {
-                display: block;
-                margin: 0.5rem 0;
-            }
+            .hero h1 { font-size: 1.8rem; }
+            .app-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="logo">⚡ Enerji Teklif</div>
-            <div class="tagline">Elektrik Mühendisleri İçin Profesyonel Çözüm</div>
+            <div class="logo">⚡ EEM Yazılım</div>
+            <div class="tagline">Mühendislik İçin Modern Mobil Çözümler</div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>Elektrik Tekliflerinizi Saniyeler İçinde Oluşturun</h1>
-            <p>Enerji Teklif ile profesyonel PDF teklifler hazırlayın. Elektrik mühendisleri için özel olarak tasarlanmış, mobil ve kullanıcı dostu uygulama.</p>
-            <a href="#features" class="cta-button">Özellikleri Keşfedin</a>
+            <h1>Mühendislik İş Akışınızı Dijitalleştirin</h1>
+            <p>Elektrik mühendisleri için geliştirilmiş, sahada ve ofiste işinizi kolaylaştıran profesyonel uygulamalar.</p>
         </div>
     </section>
 
-    <section id="features" class="features">
+    <section class="apps-section">
         <div class="container">
-            <h2>Özellikler</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📄</div>
-                    <h3>PDF Teklif Oluşturma</h3>
-                    <p>Profesyonel görünümlü PDF teklifler anında oluşturun. Müşterilerinize hızlı ve etkileyici teklifler sunun.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Mobil Uyumlu</h3>
-                    <p>Android cihazınızda her yerden erişin. Sahada çalışırken bile tekliflerinizi hazırlayın ve gönderin.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Elektrik Mühendisleri İçin</h3>
-                    <p>Elektrik projeleri ve enerji hesaplamaları için özel olarak optimize edilmiş şablonlar ve araçlar.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Kolay Kullanım</h3>
-                    <p>Sezgisel arayüz sayesinde dakikalar içinde profesyonel teklifler oluşturun. Teknik bilgi gerektirmez.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💼</div>
-                    <h3>Profesyonel Şablonlar</h3>
-                    <p>Hazır şablonlarla işinizi kolaylaştırın. Firmanıza özel logonuzu ve bilgilerinizi ekleyin.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Güvenli ve Hızlı</h3>
-                    <p>Verileriniz güvende. Hızlı işlem gücü ile tekliflerinizi anında oluşturun ve paylaşın.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about">
-        <div class="container">
-            <h2>Enerji Teklif Hakkında</h2>
-            <p>Enerji Teklif, elektrik mühendisleri ve enerji sektöründeki profesyoneller için geliştirilmiş, mobil öncelikli bir teklif hazırlama uygulamasıdır.</p>
-            <p>Uygulamamız, karmaşık elektrik projelerini basit ve anlaşılır tekliflere dönüştürmenize yardımcı olur. PDF formatında profesyonel çıktılar alarak müşterilerinize hızlı ve etkili bir şekilde sunabilirsiniz.</p>
-            <p>Modern arayüzü ve kullanıcı dostu tasarımı sayesinde, sahada çalışırken bile kolayca teklif hazırlayabilir, düzenleyebilir ve paylaşabilirsiniz.</p>
-        </div>
-    </section>
-
-    <section class="contact">
-        <div class="container">
-            <h2>İletişim</h2>
-            <p>Sorularınız mı var? Bizimle iletişime geçin!</p>
-            <a href="mailto:bilgenahm@gmail.com">bilgenahm@gmail.com</a>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="index.html">Ana Sayfa</a>
-                <a href="privacy-policy.html">Gizlilik Politikası</a>
-            </div>
-            <p>&copy; 2026 Enerji Teklif. Tüm hakları saklıdır.</p>
-        </div>
-    </footer>
-</body>
-</html>
+            <h2 class="section-title">Uygulamalarımız</h2>
+            <div class="app-grid">
+                
+                <div class="app-card">
+                    <div class="app-content">
+                        <span class="app-badge">Popüler</span>
+                        <h3>EEM Asistan</h3>
+                        <p>Elektrik mühendisleri için profesyonel PDF teklif oluşturma, saha inceleme ve teknik hesaplama ar
